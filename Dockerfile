@@ -15,16 +15,12 @@ ARG NB_UID=1000
 ENV USER ${NB_USER}
 ENV NB_UID ${NB_UID}
 ENV HOME /home/${NB_USER}
-ENV WORKDIR $HOME/work
 
-
-COPY . ${WORKDIR}
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 
-WORKDIR ${WORKDIR}
 RUN  pip install https://github.com/modflowpy/pymake/zipball/master \
     && git clone https://github.com/modflowpy/pymake.git --single-branch --branch master  \
     && python pymake/examples/buildall.py   --fflags='-O3' 
-
+RUN rm -rf temp pymake
 RUN pip install flopy pyvista
