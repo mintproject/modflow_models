@@ -25,6 +25,6 @@ USER ${NB_USER}
 WORKDIR ${WORKDIR}
 RUN  pip install https://github.com/modflowpy/pymake/zipball/master \
     && git clone https://github.com/modflowpy/pymake.git --single-branch --branch master  \
-    && python pymake/buildall.py   --fflags='-O3' 
+    && python pymake/examples/buildall.py   --fflags='-O3' 
 
 RUN pip install flopy pyvista
