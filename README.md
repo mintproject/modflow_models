@@ -7,8 +7,8 @@ Models supported: MODFLOW 6, MODFLOW-2005, MODFLOW-NWT, MODFLOW-USG, MODFLOW-LGR
 
 ### Using Docker
 
-```
-$ docker run  -d --rm --name modflow_notebook \ 
-  -v $PWD/notebooks:/home/jovyan/demo \
+```bash
+$ docker run  --rm --name modflow_notebook \ 
+  -v $PWD/examples:/home/jovyan/examples \
   -p 8888:8888 mintproject/modflow_models
 ```
