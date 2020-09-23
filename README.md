@@ -15,8 +15,7 @@ $ docker run  --rm --name modflow_notebook \
 
 #### Running examples
 
-[flopy](https://github.com/modflowpy/flopy) provides several examples.
-
+[flopy](https://github.com/modflowpy/flopy) provides several [examples](https://github.com/modflowpy/flopy/blob/develop/docs/notebook_examples.md).
 
 ```bash
 $ git clone https://github.com/modflowpy/flopy.git
