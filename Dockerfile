@@ -8,8 +8,6 @@ RUN apt-get update \
         build-essential \
         gfortran
 
-    
-
 ARG NB_USER=jovyan
 ARG NB_UID=1000
 ENV USER ${NB_USER}
@@ -18,9 +16,16 @@ ENV HOME /home/${NB_USER}
 
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
+   
 
-RUN  pip install https://github.com/modflowpy/pymake/zipball/master \
+RUN pip install https://github.com/modflowpy/pymake/zipball/master \
     && git clone https://github.com/modflowpy/pymake.git --single-branch --branch master  \
-    && python pymake/examples/buildall.py   --fflags='-O3' 
-RUN rm -rf temp pymake
-RUN pip install flopy pyvista
+    && python pymake/examples/buildall.py   --fflags='-O3'
+
+USER root
+RUN  find ${HOME} -maxdepth 1 -executable -type f -exec mv '{}' /usr/local/bin/ \; \
+     && rm -rf ${HOME}/temp/
+
+USER ${NB_USER}
+#RUN pip install flopy pyvista
+
