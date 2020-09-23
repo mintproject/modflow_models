@@ -11,8 +11,8 @@ Models supported: MODFLOW 6, MODFLOW-2005, MODFLOW-NWT, MODFLOW-USG, MODFLOW-LGR
 $ docker run  --rm --name modflow_notebook \ 
   -v $PWD/examples:/home/jovyan/examples \
   -p 8888:8888 mintproject/modflow_models
-  
-  
+```
+
 To open the notebook on your browser, copy the link starting with http://127.0.0.1:8888/
 
 ```
