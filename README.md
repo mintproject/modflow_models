@@ -19,6 +19,7 @@ $ docker run  --rm --name modflow_notebook \
 
 ```bash
 $ git clone https://github.com/modflowpy/flopy.git
+$ chmod -R 777 flopy/
 ```
 
 ```bash
