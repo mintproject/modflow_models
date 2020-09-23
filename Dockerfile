@@ -26,6 +26,7 @@ USER root
 RUN  find ${HOME} -maxdepth 1 -executable -type f -exec mv '{}' /usr/local/bin/ \; \
      && rm -rf ${HOME}/temp/
 
+RUN apt-get install libgdal-dev -y
 USER ${NB_USER}
-#RUN pip install flopy pyvista
-
+COPY environment.yml ./
+RUN  conda env update -f ./environment.yml

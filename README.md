@@ -7,9 +7,24 @@ Models supported: MODFLOW 6, MODFLOW-2005, MODFLOW-NWT, MODFLOW-USG, MODFLOW-LGR
 
 ### Using Docker
 
+
 ```bash
 $ docker run  --rm --name modflow_notebook \ 
-  -v $PWD/examples:/home/jovyan/examples \
+  -p 8888:8888 mintproject/modflow_models
+```
+
+#### Running examples
+
+[flopy](https://github.com/modflowpy/flopy) provides several examples.
+
+
+```bash
+$ git clone https://github.com/modflowpy/flopy.git
+```
+
+```bash
+$ docker run  --rm --name modflow_notebook \ 
+  -v $PWD/flopy:/home/jovyan/work \
   -p 8888:8888 mintproject/modflow_models
 ```
 
@@ -33,4 +48,7 @@ Executing the command: jupyter notebook
         http://828f356ef4f8:8888/?token=ee363a2ff78f0866803f5ab1de070f4bd0544054e6efe9df
      or http://127.0.0.1:8888/?token=ee363a2ff78f0866803f5ab1de070f4bd0544054e6efe9df
 ```
+
+The examples will be available in the directory `work/examples/Notebooks`
+
 
